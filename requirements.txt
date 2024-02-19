@@ -1,4 +1,4 @@
 pytesseract
-fastapi
+fastapi[all]
 opencv-python
 transformers
