@@ -1,6 +1,5 @@
-pytesseract
-tesseract
-fastapi[all]
-opencv-python
-transformers
-Pillow
+fastapi==0.68.0
+opencv-python==4.5.4.60
+transformers==4.12.2
+pytesseract==0.3.8
+Pillow==8.4.0
