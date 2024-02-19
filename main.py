@@ -1,4 +1,3 @@
-import io
 import os
 import cv2
 from fastapi import FastAPI, File, UploadFile
