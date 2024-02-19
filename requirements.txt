@@ -3,4 +3,3 @@ tesseract
 fastapi[all]
 opencv-python
 transformers
-fastapi.middleware.cors
