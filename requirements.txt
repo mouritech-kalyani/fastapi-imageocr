@@ -1,0 +1,6 @@
+pytesseract
+fastapi
+opencv-python
+PIL
+re
+os
