@@ -2,4 +2,4 @@ pytesseract
 fastapi[all]
 opencv-python
 transformers
-tesseract-ocr
+Pillow
