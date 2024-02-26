@@ -1,3 +1,4 @@
+from io import BytesIO
 import os
 import cv2
 from fastapi import FastAPI, File, UploadFile
@@ -32,8 +33,13 @@ async def upload_file(file: UploadFile = File(...)):
     # Convert bytes to a PIL Image
     image = Image.open(file.filename)
     text = pytesseract.image_to_string(image)
+    
+    # image = Image.open(BytesIO(await file.read()))
 
-
+    # Use pytesseract to extract text from the image
+    # text = pytesseract.image_to_string(image)
+    
+    finalAns = []
     # Load the image for processing
     if 'income tax department' in text.lower() or 'permanent account number' in text.lower():
        fileType = 'PAN Card'
@@ -45,7 +51,7 @@ async def upload_file(file: UploadFile = File(...)):
         fileType = 'Adhar Card'
     else:
         fileType = 'Please Upload valid document'
-    
+    print('text is --',text, fileType)
     # To check image is blur or not
     isBlurry = is_image_blurry(file.filename)
 
@@ -65,7 +71,7 @@ async def upload_file(file: UploadFile = File(...)):
         else:
             adharNumber = 'Not Found'
         
-        finalAns = []
+        
         finalAns.append(
             {
                 'Name': nameOfPerson[0]['answer'],
@@ -83,7 +89,7 @@ async def upload_file(file: UploadFile = File(...)):
             panNumber =  panNoMatches.group(0).replace(' ', '')  # Remove spaces
         else:
             panNumber = 'Not Found'
-        finalAns = []
+        
         finalAns.append(
             {
                 'Name': nameOfPerson[0]['answer'],
@@ -119,7 +125,7 @@ async def upload_file(file: UploadFile = File(...)):
                 gender = match.group(1)
             else:
                 gender = 'Not Found'
-        finalAns = []
+        
         finalAns.append(
             {
                 'Name': nameOfPerson[0]['answer'],
