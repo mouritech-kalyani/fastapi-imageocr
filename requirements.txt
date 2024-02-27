@@ -1,8 +1,8 @@
 fastapi
 uvicorn
 opencv-python
-# transformers==4.11.3
-# pytesseract==0.3.9
+transformers
+pytesseract
 # pillow==8.4.0
 # opencv-python-headless==4.5.4.60
 # numpy==1.21.2
