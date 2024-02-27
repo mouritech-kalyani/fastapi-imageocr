@@ -51,9 +51,11 @@ async def upload_file(file: UploadFile = File(...)):
         fileType = 'Adhar Card'
     else:
         fileType = 'Please Upload valid document'
-    print('text is --',text, fileType)
+    print('text is --',len(text), fileType)
     # To check image is blur or not
-    isBlurry = is_image_blurry(file.filename)
+    isBlurry = False
+    if len(text) > 0:
+        isBlurry = is_image_blurry(file.filename)
 
     if isBlurry:
         print("The uploaded image is blurry.")
@@ -61,7 +63,7 @@ async def upload_file(file: UploadFile = File(...)):
         print("The uploaded image is not blurry.")
     pipe = pipeline("document-question-answering", model="impira/layoutlm-document-qa")
 
-    if fileType == 'Adhar Card':
+    if fileType == 'Adhar Card' and len(text) > 0:
         nameOfPerson = pipe(image=file.filename, question = "What is the name of the person?")
         dob = pipe(image=file.filename, question = "What is DOB of the person?")
         gender = pipe(image=file.filename, question = "What is gender of the person?")
@@ -80,7 +82,7 @@ async def upload_file(file: UploadFile = File(...)):
                 'AdharNumber': adharNumber,
             }
         )
-    elif fileType == 'PAN Card':  
+    elif fileType == 'PAN Card'  and len(text) > 0:  
         nameOfPerson = pipe(image=file.filename, question = "What is the name of the person?")
         fathersName = pipe(image=file.filename, question = "What is the father's name or mother's name?")
         dob = pipe(image=file.filename, question = "What is Date of birth?")
@@ -98,7 +100,7 @@ async def upload_file(file: UploadFile = File(...)):
                 'PanCardNumber': panNumber,
             }
         )
-    elif fileType == 'Passport':  
+    elif fileType == 'Passport' and len(text) > 0:  
         
         surname =  pipe(image=file.filename, question = "What is the Surname of the person ?")
         nameOfPerson = pipe(image=file.filename, question = "What is the Given name of the person ?")
