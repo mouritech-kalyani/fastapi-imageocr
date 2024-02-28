@@ -6,6 +6,7 @@ pytesseract==0.3.7
 requests
 python-multipart
 pillow==8.4.0
+easyocr
 tesseract
 tesseract-ocr
 # opencv-python-headless==4.5.4.60
