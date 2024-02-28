@@ -2,7 +2,7 @@ fastapi
 uvicorn
 opencv-python
 transformers
-pytesseract==0.3.8
+pytesseract==0.3.7
 requests
 python-multipart
 pillow==8.4.0
