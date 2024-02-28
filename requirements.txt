@@ -7,7 +7,9 @@ requests
 python-multipart
 pillow==8.4.0
 easyocr
-# tesseract
+numpy
+tensorflow
+tesseract==0.1.3
 # tesseract-ocr
 # opencv-python-headless==4.5.4.60
 # numpy==1.21.2
