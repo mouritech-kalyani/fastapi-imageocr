@@ -9,7 +9,7 @@ import re
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
-pytesseract.pytesseract.tesseract_cmd =  '/Library/Frameworks/Python.framework/Versions/3.10/bin/pytesseract'
+# pytesseract.pytesseract.tesseract_cmd =  '/Library/Frameworks/Python.framework/Versions/3.10/bin/pytesseract'
 
 app.add_middleware(
     CORSMiddleware,
