@@ -33,7 +33,7 @@ async def upload_file(file: UploadFile = File(...)):
 
     # Convert bytes to a PIL Image
     image = Image.open(file.filename)
-    text = pytesseract.image_to_string(image)
+    text = pytesseract.image_to_string(image, lang = 'eng')
     
     # image = Image.open(BytesIO(await file.read()))
 
