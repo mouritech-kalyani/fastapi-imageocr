@@ -19,8 +19,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-UPLOADS_DIR = 'uploads'
-os.makedirs(UPLOADS_DIR, exist_ok=True)
+# UPLOADS_DIR = 'uploads'
+# os.makedirs(UPLOADS_DIR, exist_ok=True)
 
 
 @app.get('/')
