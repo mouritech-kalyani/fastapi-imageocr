@@ -1,5 +1,5 @@
 fastapi
-uvicorn
+uvicorn[standard]
 opencv-python
 transformers
 pytesseract==0.3.7
