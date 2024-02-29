@@ -30,7 +30,8 @@ async def root():
 @app.post("/upload/")
 async def upload_file(file: UploadFile = File(...)):
     print('file', file.filename)
-
+    with open(file.filename, "wb") as buffer:
+        buffer.write(await file.read())
     # Convert bytes to a PIL Image
     image = Image.open(file.filename)
     text = pytesseract.image_to_string(image, lang = 'eng')
