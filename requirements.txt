@@ -9,7 +9,7 @@ pillow==8.4.0
 easyocr
 numpy
 tensorflow
-# tesseract
+tesseract
 # tesseract-ocr
 # opencv-python-headless==4.5.4.60
 # numpy==1.21.2
