@@ -9,7 +9,7 @@ import re
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
-pytesseract.pytesseract.tesseract_cmd =  '/Library/Frameworks/Python.framework/Versions/3.10/bin/pytesseract'
+# pytesseract.pytesseract.tesseract_cmd =  '/Library/Frameworks/Python.framework/Versions/3.10/bin/pytesseract'
 
 app.add_middleware(
     CORSMiddleware,
@@ -34,7 +34,8 @@ async def upload_file(file: UploadFile = File(...)):
         buffer.write(await file.read())
     # Convert bytes to a PIL Image
     image = Image.open(file.filename)
-    text = pytesseract.image_to_string(image, lang = 'eng')
+    # myConfig = r"--psm 3 --oem 3"
+    text = pytesseract.image_to_string(image)
     
     # image = Image.open(BytesIO(await file.read()))
 
@@ -58,11 +59,9 @@ async def upload_file(file: UploadFile = File(...)):
     isBlurry = False
     if len(text) > 0:
         isBlurry = is_image_blurry(file.filename)
-
-    if isBlurry:
-        print("The uploaded image is blurry.")
     else:
-        print("The uploaded image is not blurry.")
+        fileType = 'Please Upload valid document'
+    
     pipe = pipeline("document-question-answering", model="impira/layoutlm-document-qa")
 
     if fileType == 'Adhar Card' and len(text) > 0:

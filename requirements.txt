@@ -10,6 +10,6 @@ easyocr
 numpy
 tensorflow
 # tesseract
-tesseract-ocr
+# tesseract-ocr
 # opencv-python-headless==4.5.4.60
 # numpy==1.21.2
