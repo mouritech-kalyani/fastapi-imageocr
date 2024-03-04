@@ -1,5 +1,5 @@
 fastapi
-uvicorn[standard]
+uvicorn
 opencv-python
 transformers
 pytesseract==0.3.7
@@ -8,7 +8,6 @@ python-multipart
 pillow==8.4.0
 easyocr
 numpy
-tensorflow
 tesseract
 # tesseract-ocr
 # opencv-python-headless==4.5.4.60
