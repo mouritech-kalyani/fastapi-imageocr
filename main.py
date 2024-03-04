@@ -7,6 +7,7 @@ import pytesseract
 from PIL import Image
 import re
 from fastapi.middleware.cors import CORSMiddleware
+import uvicorn
 
 app = FastAPI()
 # pytesseract.pytesseract.tesseract_cmd =  '/Library/Frameworks/Python.framework/Versions/3.10/bin/pytesseract'
@@ -19,6 +20,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+if __name__ == "__main__":
+   uvicorn.run(app, host="0.0.0.0", port=8080)
+
+   
 # UPLOADS_DIR = 'uploads'
 # os.makedirs(UPLOADS_DIR, exist_ok=True)
 
