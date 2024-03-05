@@ -10,7 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
 app = FastAPI()
-# pytesseract.pytesseract.tesseract_cmd =  '/Library/Frameworks/Python.framework/Versions/3.10/bin/pytesseract'
+pytesseract.pytesseract.tesseract_cmd =  r'/usr/local/bin/tesseract'
 
 app.add_middleware(
     CORSMiddleware,
